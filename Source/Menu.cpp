@@ -4,7 +4,7 @@
 
 void main() 
 {
-	notifyMap("~b~Tims ~b~Menu ~s~v1.1 ~g~Loaded!");
+	notifyMap("~b~Lean ~b~Menu ~s~v1.1 ~g~Loaded!");
 	while (true) 
 	{
 		Menu::Checks::Controlls();
