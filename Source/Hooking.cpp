@@ -470,7 +470,7 @@ void Hooking::FindPatterns()
 	auto p_fixVector3Result = pattern("83 79 18 00 48 8B D1 74 4A FF 4A 18");
 	auto p_gameLegals = pattern("72 1F E8 ? ? ? ? 8B 0D");
 	auto p_gameLogos = pattern("70 6C 61 74 66 6F 72 6D 3A");
-	auto p_gameState = pattern("83 3D ? ? ? ? ? 8A D9 74 0A");
+	auto p_gameState = pattern("83 3D ? ? ? ? ? 75 17 8B 43 20 25");
 	auto p_modelCheck = pattern("48 85 C0 0F 84 ? ? ? ? 8B 48 50");
 	auto p_modelSpawn = pattern("48 8B C8 FF 52 30 84 C0 74 05 48");
 	auto p_nativeTable = pattern("76 32 48 8B 53 40 48 8D 0D");
