@@ -518,17 +518,13 @@ void Hooking::FindPatterns()
 
 	Log::Msg("Bypassing Object restrictions..");
 
-	if (p_modelCheck.size() > 0) {
+	CPattern pattern_modelCheck("\x48\x85\xC0\x0F\x84\x00\x00\x00\x00\x8B\x48\x50", "xxxxx????xxx");
+	auto ptr = pattern_modelCheck.find(0).get(0).get<char>(0);
+	ptr == nullptr ? Log::Error("[Pattern] Failed to find modelCheck.") : Memory::nop(ptr, 24);
 
-		v_location = p_modelCheck.count(1).get(0).get<void>(0);
-		Memory::nop(v_location, 24);
-	}
-
-	if (p_modelSpawn.size() > 0) {
-
-		v_location = p_modelSpawn.count(1).get(0).get<void>(8);
-		Memory::nop(v_location, 2);
-	}
+	CPattern pattern_modelSpawn("\x48\x8B\xC8\xFF\x52\x30\x84\xC0\x74\x05\x48", "xxxxxxxxxxx");
+	ptr = pattern_modelSpawn.find(0).get(0).get<char>(8);
+	ptr == nullptr ? Log::Error("[Pattern] Failed to find modelSpawn.") : Memory::nop(ptr, 2);
 
 	Log::Msg("Getting active script thread...");
 	c_location = p_activeThread.count(1).get(0).get<char>(1);
