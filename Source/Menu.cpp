@@ -29,19 +29,19 @@ void main()
 
 		case mainmenu:
 		{
-			Menu::Title("Tims Menu");
-			Menu::MenuOption("Player", player);
+			Menu::Title("Lean Menu");
+			Menu::MenuOption("Self", player);
 			Menu::MenuOption("Weapon", weapon);
 			Menu::MenuOption("World", world);
 			Menu::MenuOption("Recovery", recovery);
-			Menu::MenuOption("Online Players", playerlist);
+			Menu::MenuOption("Players", playerlist);
 			Menu::MenuOption("Settings", settings);
 		}
 		break;
 
 		case player:
 		{
-			Menu::Title("Player Menu");
+			Menu::Title("Self");
 			Menu::Toggle("Godmode", GODMODE);
 			Menu::Toggle("Invisible", INVISIBLE);
 			Menu::Toggle("Super Jump", SUPERJUMP);
@@ -150,7 +150,7 @@ void main()
 					PED::SET_PED_INTO_VEHICLE(PLAYER::PLAYER_PED_ID(), PED::GET_VEHICLE_PED_IS_USING(PLAYER::GET_PLAYER_PED(selectedPlayer)), VEHICLE::IS_VEHICLE_SEAT_FREE(PED::GET_VEHICLE_PED_IS_USING(PLAYER::GET_PLAYER_PED(selectedPlayer)), -1));
 				}
 			}
-			Menu::Toggle("Drop Money", MONEYDROP);
+			Menu::Toggle("Drop Money (PATCHED)", MONEYDROP);
 			if (Menu::Option("Drop Money"))
 			{
 				STREAMING::REQUEST_MODEL(0x113FD533);
@@ -230,7 +230,7 @@ void main()
 		case recovery:
 		{
 			Menu::Title("Recovery");
-			if (Menu::Option("Get 1 Million"))
+			if (Menu::Option("1 Million Cash (PATCHED)"))
 			{
 				int var0 = 0ul;
 				UNK3::_NETWORK_SHOP_BEGIN_SERVICE(&var0, 1474183246, 312105838, 1445302971, 1000000, 4);
@@ -253,7 +253,7 @@ void main()
 
 		case world:
 		{
-			Menu::Title("World");
+			Menu::Title("World Options");
 			Menu::MenuOption("Time", timemenu);
 			Menu::MenuOption("Weather", weather);
 			Menu::MenuOption("Vehicle Spawner", vehiclespawn);
